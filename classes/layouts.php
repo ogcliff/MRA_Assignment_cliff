@@ -85,8 +85,7 @@ class Layouts
 		            <h6 class="collapse-header">Options</h6>
 		            <a class="collapse-item" href="taxpayer_create.php">Create</a>
 		            <a class="collapse-item" href="taxpayer_view.php">View</a>
-		            <a class="collapse-item" href="tax">Edit</a>
-		            <a class="collapse-item" href="#">Delete</a>
+		            <a class="collapse-item" href="taxpayer_edit_delete.php">Edit | Delete</a>
 		          </div>
 		        </div>
 		      </li>
