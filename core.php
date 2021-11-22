@@ -31,10 +31,20 @@ if (isset($_POST['taxPayerRegister'])&&isset($_POST['tpin'])&&isset($_POST['cbn'
 
 
 if (isset($_GET['getAll'])) {
+	// echo "blisters";
 	require 'classes/taxpayer.php'; 
 	$taxpayer = new Taxpayer();
 	$taxpayer->getAll();
 }
+
+if (isset($_POST['deleteTP'])) {
+	require 'classes/taxpayer.php';
+	$TPIN = htmlspecialchars(strip_tags($_POST['TPIN']));
+	$taxpayer = new Taxpayer();
+	$taxpayer->deleteTaxPayer($TPIN);
+}
+
+
 
 ?>
 

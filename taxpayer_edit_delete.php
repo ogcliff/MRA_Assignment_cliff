@@ -16,8 +16,8 @@ $layout->header();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Tax Payers</h1>
+          <p class="mb-4">Edit or Delete Tax Payers.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -63,7 +63,7 @@ $layout->footer();
         });
 
         request.done(function(feeback){
-          // console.log(feeback);
+          console.log(feeback);
           var data = JSON.parse(feeback);
           if (data) {
              console.log(data);
@@ -107,7 +107,7 @@ $layout->footer();
                         </a>
                         <br>
                         <br>
-                        <a href="#" class="btn btn-danger btn-icon-split">
+                        <a href="#" onclick="deleteTaxpayer(`+data[i].TPIN+`)" class="btn btn-danger btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                           </span>
@@ -117,7 +117,45 @@ $layout->footer();
                     </tr>`;
           }
           $('#dataTable').DataTable();
+  }
+
+
+  function deleteTaxpayer(tpin)
+  {
+    if (confirm('Are you sure you want to delete this from your database?')) {
+      $(document).ready(
+        function()
+        {
+          var request = $.ajax({
+            url: "core.php",
+            type: "POST",
+            data: {deleteTP : "TaxPayer",TPIN : tpin},
+            dataType: "html"
+          });
+
+          request.done(function(feeback){
+            console.log(feeback);
+            if (feeback == 1) 
+            {
+              alert("Tax payer deleted");
+              window.location = "taxpayer_edit_delete.php";
+            }
+          });
+
+          request.fail(function(jqXHR, textStatus){
+            console.log("failed");
+          });
+        }
+      ); 
+    } else {
+      // Do nothing!
+      console.log('The was not deleted.');
     }
+  }
+
+
+
+
 
   </script>
 
