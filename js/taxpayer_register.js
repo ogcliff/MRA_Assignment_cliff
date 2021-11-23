@@ -15,7 +15,7 @@ $(document).on('click', '#rgbtn', function(e) {
     url: "core.php",
     type: "POST",
     data: {tpin : tpin.val(),cbn :cbn.val(),trn : trn.val(),brd : brd.val(),phone : phone.val(),email :email.val(),location : location.val(),
-          username :username.val(), taxPayerRegister : "reg"},
+          taxPayerRegister : "reg"},
     dataType: "html"
   });
 

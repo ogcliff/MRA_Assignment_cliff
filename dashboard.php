@@ -59,7 +59,7 @@ $layout->header();
             <div class="col mr-2">
               <br>
               <div class="display-2 mb-0 font-weight-bold text-primary text-center"><i class="fas fa-user-edit"></i></div>
-              <div class="text-center">Add TaxPayer</div>
+              <div class="text-center">Edit TaxPayer</div>
             </div>
           </div>
         </div>
