@@ -22,7 +22,7 @@ $layout->header();
   <div class="row">
 
     <!-- Add TaxPayer Tab -->
-    <a href="#" class="col-xl-6 col-md-6 mb-4">
+    <a href="taxpayer_create.php" class="col-xl-6 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -37,13 +37,13 @@ $layout->header();
     </a>
 
     <!-- View my TaxPayers -->
-    <a href="#" class="col-xl-6 col-md-6 mb-4">
-      <div class="card border-left-success shadow h-100 py-2">
+    <a href="taxpayer_view.php" class="col-xl-6 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <br>
-              <div class="display-2 mb-0 font-weight-bold text-success text-center"><i class="fas fa-list-alt"></i></div>
+              <div class="display-2 mb-0 font-weight-bold text-primary text-center"><i class="fas fa-list-alt"></i></div>
               <div class="text-center">View my TaxPayers</div>
             </div>
           </div>
@@ -52,13 +52,13 @@ $layout->header();
     </a>
 
     <!-- Add TaxPayer -->
-    <a href="#" class="col-xl-6 col-md-6 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
+    <a href="taxpayer_edit_delete.php" class="col-xl-6 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <br>
-              <div class="display-2 mb-0 font-weight-bold text-warning text-center"><i class="fas fa-user-edit"></i></div>
+              <div class="display-2 mb-0 font-weight-bold text-primary text-center"><i class="fas fa-user-edit"></i></div>
               <div class="text-center">Add TaxPayer</div>
             </div>
           </div>

@@ -164,11 +164,12 @@ a {
   color: #017143;
   text-decoration: none;
   background-color: transparent;
+  transition: 0.4s;
 }
 
 a:hover {
-  color: #224abe;
-  text-decoration: underline;
+  color: #f6c23e ;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {

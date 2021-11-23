@@ -20,7 +20,13 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+session_start();
+session_destroy();
+
+unset($_COOKIE['email']);
+unset($_COOKIE['firstname']);
+unset($_COOKIE['lastname']);
 
 header("location:index.php");
 

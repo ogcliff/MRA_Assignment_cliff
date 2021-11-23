@@ -7,7 +7,7 @@ if (!$guards->authCheck()) { header("location:index.php"); }
 
 // Loading the UI Element for the app
 require 'classes/layouts.php';
-$layout = new Layouts('dashboard');
+$layout = new Layouts('Edit or Delete Taxpayer');
 $layout->header();
 ?>
 
@@ -22,14 +22,14 @@ $layout->header();
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tax payers List</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Business</th>
+                      <th>Business Nmae</th>
                       <th>Business Details</th>
                       <th>Actions</th>
                     </tr>
@@ -42,125 +42,62 @@ $layout->header();
             </div>
           </div>
 
+          <!-- Large modal -->
+
+          <div class="modal fade bd-example-modal-lg" id="taxpayersModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="col-lg-10 offset-lg-1">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4">Edit Tax Payer</h1>
+                    </div>
+                    <form class="user">
+                      Update Tax payers Details
+                      <hr class="sidebar-divider">
+                      <div class="form-group">
+                        <input type="hidden" class="form-control form-control-user" id="tpin" placeholder="TPIN">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="cbn" placeholder="Business Certificate Number">
+                      </div>                
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="trn" placeholder="Trading Name">
+                      </div>
+                      Bussines registration date
+                      <!-- <hr class="sidebar-divider"> -->
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="brd" placeholder="BusinessRegistrationDate">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="phone" placeholder="MobileNumber e.g 0995900000">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="email" placeholder="Email Address">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="location" placeholder="Physical Location">
+                      </div>
+                      <hr class="sidebar-divider">
+                      <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-user btn-block" onclick="sendEditTaxPayer()">Edit Tax Payer</button>
+                      </div>
+                      <hr>
+
+                    </form>
+                  </div>
+                </div>              
+              </div>
+            </div>
+          </div>
+
         </div>
 
 <?php
 $layout->footer();
 ?>
 
-
-
-
-  <script type="text/javascript">
-    $(document).ready(
-      function()
-      {
-        var request = $.ajax({
-          url: "core.php",
-          type: "GET",
-          data: {getAll : "Tax Payers"},
-          dataType: "html"
-        });
-
-        request.done(function(feeback){
-          console.log(feeback);
-          var data = JSON.parse(feeback);
-          if (data) {
-             console.log(data);
-            renderHTML(data);
-          }else{
-
-          }
-          
-          
-        });
-
-        request.fail(function(jqXHR, textStatus){
-          console.log("failed");
-        });
-      }
-    ); 
-
-    $taxpayers = $('#taxpayers');
-
-    function renderHTML(data){
-          for (var i = 0; i < data.length; i++) {
-            taxpayers.innerHTML += `
-                    <tr>
-                      <td>`+data[i].TradingName+`</td>
-                      <td>
-                        <small>
-                          TPIN : `+data[i].TPIN+`<br>
-                          BusinessCertificateNumber: `+data[i].BusinessCertificateNumber+`<br>
-                          BusinessRegistrationDate : `+data[i].BusinessRegistrationDate+`<br>
-                          MobileNumber : `+data[i].MobileNumber+`<br>
-                          Email : `+data[i].Email+`<br>
-                          PhysicalLocation : `+data[i].PhysicalLocation+`<br>
-                        </small>
-                      </td>
-                      <td>
-                        <a href="#" class="btn btn-warning btn-icon-split">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-pen"></i>
-                          </span>
-                          <span class="text">Edit</span>
-                        </a>
-                        <br>
-                        <br>
-                        <a href="#" onclick="deleteTaxpayer(`+data[i].TPIN+`)" class="btn btn-danger btn-icon-split">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-trash"></i>
-                          </span>
-                          <span class="text">Delete</span>
-                        </a>
-                      </td>
-                    </tr>`;
-          }
-          $('#dataTable').DataTable();
-  }
-
-
-  function deleteTaxpayer(tpin)
-  {
-    if (confirm('Are you sure you want to delete this from your database?')) {
-      $(document).ready(
-        function()
-        {
-          var request = $.ajax({
-            url: "core.php",
-            type: "POST",
-            data: {deleteTP : "TaxPayer",TPIN : tpin},
-            dataType: "html"
-          });
-
-          request.done(function(feeback){
-            console.log(feeback);
-            if (feeback == 1) 
-            {
-              alert("Tax payer deleted");
-              window.location = "taxpayer_edit_delete.php";
-            }
-          });
-
-          request.fail(function(jqXHR, textStatus){
-            console.log("failed");
-          });
-        }
-      ); 
-    } else {
-      // Do nothing!
-      console.log('The was not deleted.');
-    }
-  }
-
-
-
-
-
-  </script>
-
-
-    <!-- Page level plugins -->
+  <script type="text/javascript" src="js/taxpayer_edit_delete.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 

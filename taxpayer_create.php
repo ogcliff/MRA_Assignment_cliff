@@ -7,7 +7,7 @@ if (!$guards->authCheck()) { header("location:index.php"); }
 
 // Loading the UI Element for the app
 require 'classes/layouts.php';
-$layout = new Layouts('dashboard');
+$layout = new Layouts('Create Tax Payer');
 $layout->header();
 ?>
 
@@ -24,10 +24,6 @@ $layout->header();
             </div>
             <form class="user">
               Tax Payers Details
-
-
-
-
               <hr class="sidebar-divider">
               <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="tpin" placeholder="TPIN">
@@ -51,9 +47,6 @@ $layout->header();
               </div>
               <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="location" placeholder="Physical Location">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control form-control-user" id="username" placeholder="Username" required>
               </div>
               <hr class="sidebar-divider">
               <div class="form-group">

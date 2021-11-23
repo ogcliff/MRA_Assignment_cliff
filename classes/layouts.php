@@ -38,7 +38,7 @@ class Layouts
 		  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 		  <!-- Custom styles-->
-		  <link href="css/sb-admin-2.css" rel="stylesheet">
+		  <link href="css/main.css" rel="stylesheet">
 
 		</head>
 
@@ -147,8 +147,9 @@ class Layouts
 		            <!-- Nav Item - User Information -->
 		            <li class="nav-item dropdown no-arrow">
 		              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->firstname." ".$this->lastname; ?></span>
-		                <img class="img-profile rounded-circle" src="img/user.jpg">
+		                <span class="mr-2 d-none d-lg-inline text-warning small"><?php echo $this->firstname." ".$this->lastname; ?></span>
+		                <span><i class="fas fa-user fa-sm fa-fw mr-2 text-warning"></i></span>
+		                <!-- <img class="img-profile rounded-circle" src="img/user.jpg"> -->
 		              </a>
 		              <!-- Dropdown - User Information -->
 		              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -223,7 +224,7 @@ class Layouts
 		  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 		  <!-- Custom scripts for all pages-->
-		  <script src="js/sb-admin-2.min.js"></script>
+		  <script src="js/sb-main.min.js"></script>
 
 		</body>
 
