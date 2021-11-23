@@ -27,7 +27,7 @@ $(document).on('click', '#rgbtn', function(e) {
     }
       else if(feeback == 1)
     {
-      alert("taxPayer "+username.val()+" Saved");
+      alert("taxPayer ' "+trn.val()+" ' Saved");
       window.location="taxpayer_create.php";
     }
   });
