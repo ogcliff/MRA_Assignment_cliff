@@ -70,7 +70,7 @@ $layout->header();
 <!-- /.container-fluid -->
 
 </div>
-<!-- End of Main Content -->
+<!-- End of Main Contentt -->
 <?php
 $layout->footer();
 ?>
