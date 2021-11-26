@@ -5,9 +5,9 @@
 class Layouts
 {
 	private $pageTitle;
-	public $email;
-	public $firstname;
-	public $lastname;
+	private $email;
+	private $firstname;
+	private $lastname;
 
 	function __construct($pageTitle)
 	{
@@ -94,7 +94,7 @@ class Layouts
 		      <hr class="sidebar-divider">
 		      <!-- Nav Item - profile -->
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">
+		        <a class="nav-link" href="profile.php">
 		          <i class="fas fa-fw fa-wrench"></i>
 		          <span>Profile</span></a>
 		      </li>

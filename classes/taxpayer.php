@@ -50,7 +50,8 @@ class Taxpayer
 
 		curl_close($curl);
 
-		echo 1;
+		echo $response;
+
 		return;
 	}
 
@@ -87,7 +88,6 @@ class Taxpayer
 
 	public function editTaxPayer($TPIN,$BusinessCertificateNumber,$TradingName,$BusinessRegistrationDate,$MobileNumber,$Email,$PhysicalLocation)
 	{
-		echo 321;
 
 		$curl = curl_init();
 
@@ -122,8 +122,6 @@ class Taxpayer
 
 		curl_close($curl);
 		echo $response;
-
-		
 	}
 
 	public function deleteTaxPayer($Tpin)

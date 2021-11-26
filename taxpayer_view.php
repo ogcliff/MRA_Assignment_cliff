@@ -26,6 +26,7 @@ $layout->header();
               <small>You can search by anything</small>
             </div>
             <div class="card-body">
+              <div class="text-center" id="loader"><img height="100px" src="img/loader.gif"></div>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -35,7 +36,6 @@ $layout->header();
                     </tr>
                   </thead>
                   <tbody id="taxpayers">
-
                   </tbody>
                 </table>
               </div>

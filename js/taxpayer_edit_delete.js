@@ -30,6 +30,7 @@
     $taxpayers = $('#taxpayers');
 
     function renderHTML(data){
+      $("#loader").hide();
           for (var i = 0; i < data.length; i++) {
             taxpayers.innerHTML += `
                     <tr>
@@ -45,7 +46,7 @@
                         </small>
                       </td>
                       <td>
-                        <button onclick="editTaxpayer('`+data[i].TPIN+`','`+data[i].BusinessCertificateNumber+`','`+data[i].TradingName+`','`+data[i].BusinessRegistrationDate+`','`+data[i].MobileNumber+`','`+data[i].Email+`','`+data[i].PhysicalLocation+`')" class="btn btn-warning btn-icon-split">
+                        <button  onclick="editTaxpayer('`+data[i].TPIN+`','`+data[i].BusinessCertificateNumber+`','`+data[i].TradingName+`','`+data[i].BusinessRegistrationDate+`','`+data[i].MobileNumber+`','`+data[i].Email+`','`+data[i].PhysicalLocation+`')" class="btn btn-warning btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-pen"></i>
                           </span>
@@ -72,6 +73,15 @@
       $(document).ready(
         function()
         {
+
+          $.ajax({
+             beforeSend: function(){
+                $taxpayers.hide();
+                $("#loader").show();
+             }
+          });
+
+
           var request = $.ajax({
             url: "core.php",
             type: "POST",
@@ -102,6 +112,7 @@
 
   function editTaxpayer(TPIN,BusinessCertificateNumber,TradingName,BusinessRegistrationDate,MobileNumber,Email,PhysicalLocation)
   {
+    $('#editLoader').hide();
     // Input Fields
     var tpin      = $('#tpin');
     var cbn       = $('#cbn');
@@ -139,6 +150,8 @@
     var phone     = $('#phone');
     var email     = $('#email');
     var location  = $('#location');
+    $('#editBtn').prop('disabled', true);
+    $('#editLoader').show();
 
 
     var request = $.ajax({
@@ -157,9 +170,9 @@
       }
     });
 
-    request.fail(function(jqXHR, textStatus){
-      console.log("failed");
-    });
+    // request.fail(function(jqXHR, textStatus){
+    //   console.log("failed");
+    // });
   }
 
 

@@ -25,6 +25,7 @@ $layout->header();
               <h6 class="m-0 font-weight-bold text-primary">Tax payers List</h6>
             </div>
             <div class="card-body">
+              <div class="text-center" id="loader"><img height="100px" src="img/loader.gif"></div>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -43,7 +44,6 @@ $layout->header();
           </div>
 
           <!-- Large modal -->
-
           <div class="modal fade bd-example-modal-lg" id="taxpayersModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -52,6 +52,7 @@ $layout->header();
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Edit Tax Payer</h1>
                     </div>
+                    <div class="text-center " id="editLoader"><img height="100px" src="img/loader.gif"></div>
                     <form class="user">
                       Update Tax payers Details
                       <hr class="sidebar-divider">
@@ -80,7 +81,7 @@ $layout->header();
                       </div>
                       <hr class="sidebar-divider">
                       <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-user btn-block" onclick="sendEditTaxPayer()">Edit Tax Payer</button>
+                        <button id="editBtn" type="button" class="btn btn-primary btn-user btn-block" onclick="sendEditTaxPayer()">Edit Tax Payer</button>
                       </div>
                       <hr>
 

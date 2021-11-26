@@ -30,6 +30,7 @@
     $taxpayers = $('#taxpayers');
 
     function renderHTML(data){
+       $("#loader").hide();
           for (var i = 0; i < data.length; i++) {
             taxpayers.innerHTML += `
                     <tr>
@@ -48,4 +49,5 @@
           }
 
           $('#dataTable').DataTable();
+
     }

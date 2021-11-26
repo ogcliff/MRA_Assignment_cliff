@@ -6,6 +6,13 @@ var lpassword =  $('#password');
 // When the login button is clicked
 $(document).on('click', '.lognBtn', function(e) {
   e.preventDefault();
+  
+
+  $.ajax({
+     beforeSend: function(){
+        $('.msg').html("Loading........");
+     }
+  });
 
 
   var request = $.ajax({
@@ -17,13 +24,13 @@ $(document).on('click', '.lognBtn', function(e) {
 
   request.done(function(feeback){
     console.log(feeback);
-    if (feeback == 0 ) 
-    {
-      $('.msg').html("Incorrect Credentials");
-    }
-      else if(feeback == 1)
+    if (feeback == 1 ) 
     {
       window.location="dashboard.php";
+    }
+      else
+    {
+      $('.msg').html("Incorrect Credentials");
     }
   });
 
