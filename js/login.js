@@ -2,21 +2,11 @@
 var lemail =  $('#email');
 var lpassword =  $('#password');
 
-$.ajax({
-   beforeSend: function(){
-      console.log('hello');
-   }
-});
 
 // When the login button is clicked
 $(document).on('click', '.lognBtn', function(e) {
   e.preventDefault();
 
-  $.ajax({
-     beforeSend: function(){
-        alert('hello');
-     }
-  });
 
   var request = $.ajax({
     url: "core.php",
@@ -42,5 +32,3 @@ $(document).on('click', '.lognBtn', function(e) {
   });
 
 });
-
-
