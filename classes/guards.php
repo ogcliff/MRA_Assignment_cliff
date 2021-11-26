@@ -7,7 +7,7 @@ class Guards
 {
 	
 	function authCheck(){
-		if($this->checkSession()) {
+		if($this->checkSession() && $this->checkSession()) {
 			return true;
 		}else{
 			return false;

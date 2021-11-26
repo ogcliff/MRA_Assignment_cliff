@@ -1,4 +1,4 @@
-// When the login button is clicked
+// When the register button is clicked
 $(document).on('click', '#rgbtn', function(e) {
   e.preventDefault();
   // Input Fields

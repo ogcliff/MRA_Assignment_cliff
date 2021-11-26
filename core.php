@@ -62,7 +62,5 @@ if (isset($_POST['deleteTP'])) {
 	$taxpayer->deleteTaxPayer($TPIN);
 }
 
-
-
 ?>
 
